@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TerminalV1</title>
+  <style>
+    body {
+      font-family: monospace;
+      background-color: #0a0a0a;
+      color: #00ffcc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    input, button {
+      margin-top: 1rem;
+      padding: 0.5rem;
+      font-size: 1rem;
+      background-color: #111;
+      color: #00ffcc;
+      border: 1px solid #00ffcc;
+    }
+    .output {
+      margin-top: 2rem;
+      white-space: pre-wrap;
+      border: 1px solid #00ffcc;
+      padding: 1rem;
+      max-width: 600px;
+      display: none;
+    }
+    img {
+      max-width: 100%;
+      margin-top: 1rem;
+      border: 1px solid #00ffcc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Anzen's Not-Secure Terminal</h1>
+  <p>Input Authorization Code:</p>
+  <input type="text" id="codeInput" placeholder="Enter code here...">
+  <button onclick="checkCode()">ACCESS</button>
+  <div id="output" class="output"></div>
+
+  <script>
+    const clues = {
+      "HA1LHARUK1": `<p>Access granted. File Retrieved: <strong>VCHOTSPOTS.png</strong></p><img src="VCHOTSPOTS.png" alt="VC Hotspots Map">`,
+      "47": "Access granted.\n47 sites, 47 sacrifices. Hope it didn't take you too long to piece together, Chromatic! I wasn't even there on the 19th. Too busy burning bodies in offerings for Father. Do you always accuse innocent men of murder?",
+      "SHU1CH1WASH3R3": `<p>Access granted. File Retrieved: <strong>AUTOSPYT5.png</strong></p><img src="AUTOSPYT5.png" alt="Autopsy File">`,
+      "T3A4A11": `<p>Access granted. File Retrieved: <strong>FORMALINVITE.png</strong></p><img src="FORMALINVITE.png" alt="Formal Invitation">`,
+      "R3D0RBLU3": `<p>Access granted. File Retrieved: <strong>BLOODSAMPLE0519.png</strong></p><img src="BLOODSAMPLE0519.png" alt="Blood Sample File">`
+    };
+
+    function checkCode() {
+      const input = document.getElementById('codeInput').value.trim();
+      const output = document.getElementById('output');
+
+      if (clues[input]) {
+        output.innerHTML = clues[input];
+        output.style.display = 'block';
+      } else {
+        output.textContent = 'Invalid code. Surveillance team alerted.';
+        output.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
